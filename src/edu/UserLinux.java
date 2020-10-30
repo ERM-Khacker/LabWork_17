@@ -4,7 +4,11 @@ public class UserLinux {
     private String login;
     private String password;
     private String name;
-    private Employees_InternetStore Store = Employees_InternetStore.ANONYMOUS;
+    private Employees_InternetStore store;
+
+    public UserLinux() {
+        this.store = Employees_InternetStore.ANONYMOUS;
+    }
 
     public String getLogin() {
         return login;
@@ -31,10 +35,20 @@ public class UserLinux {
     }
 
     public Employees_InternetStore getStore() {
-        return Store;
+        return store;
     }
 
     public void setStore(Employees_InternetStore store) {
-        Store = store;
+        this.store = store;
+    }
+
+    @Override
+    public String toString() {
+        return "UserLinux{" +
+                "login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", store=" + store +
+                '}';
     }
 }

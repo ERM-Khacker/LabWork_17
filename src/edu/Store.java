@@ -1,24 +1,66 @@
 package edu;
 
-public class Store extends UserLinux {
+public class Store {
     private String nameStore;
     private String urlStore;
-    protected String[] customersStore;
-    private boolean authorizedUser;
+    protected UserLinux[] customersStore;
+    private UserLinux authorizedUser;
 
-    UserLinux user = new UserLinux();
+    public String getNameStore() {
+        return nameStore;
+    }
 
-    private boolean login(String name, String password) {
-        if (name == user.getLogin() && password == user.getPassword()) {
-            authorizedUser = true;
+    public void setNameStore(String nameStore) {
+        this.nameStore = nameStore;
+    }
+
+    public String getUrlStore() {
+        return urlStore;
+    }
+
+    public void setUrlStore(String urlStore) {
+        this.urlStore = urlStore;
+    }
+
+    public UserLinux[] getCustomersStore() {
+        return customersStore;
+    }
+
+    public void setCustomersStore(UserLinux[] customersStore) {
+        this.customersStore = customersStore;
+    }
+
+    public UserLinux getAuthorizedUser() {
+        return authorizedUser;
+    }
+
+    public void setAuthorizedUser(UserLinux authorizedUser) {
+        this.authorizedUser = authorizedUser;
+    }
+
+    public UserLinux getUserLinux() {
+        return userLinux;
+    }
+
+    public void setUserLinux(UserLinux userLinux) {
+        this.userLinux = userLinux;
+    }
+
+    UserLinux userLinux = new UserLinux();
+
+    public boolean login(UserLinux user) {
+        if (user.getLogin() == userLinux.getLogin() && user.getPassword() == userLinux.getPassword()) {
+            authorizedUser = user;
             return true;
-        } else if (name != user.getLogin() && password != user.getPassword())
-            authorizedUser = false;
+        } else if (user.getLogin() != userLinux.getLogin() && user.getPassword() != userLinux.getPassword())
+            authorizedUser = null;
         return false;
     }
-Employees_InternetStore employee = Employees_InternetStore.DIRECTOR;
-    private void getCurrentUserRights() {
-        switch (employee){
+
+    Employees_InternetStore employee = Employees_InternetStore.DIRECTOR;
+
+    public void getCurrentUserRights() {
+        switch (employee) {
             case DIRECTOR:
                 System.out.println(employee.description);
             case ADMINISTRATOR:
@@ -32,8 +74,8 @@ Employees_InternetStore employee = Employees_InternetStore.DIRECTOR;
         }
     }
 
-    private void logout(){
-        authorizedUser = false;
-        System.out.println();
+    public void logout() {
+        authorizedUser = null;
+        System.out.println("This user escapes from system");
     }
 }
