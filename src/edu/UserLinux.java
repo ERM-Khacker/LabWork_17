@@ -1,13 +1,15 @@
 package edu;
 
+//1. Создать класс User (пользователь какой-то системы). Необходимые поля: login, password, name, role
 public class UserLinux {
     private String login;
     private String password;
     private String name;
-    private Employees_InternetStore store;
+    //3.Заменить тип поля role на тип созданного Enum (по умолчанию поставить анонима).
+    private Employees_InternetStore role;
 
     public UserLinux() {
-        this.store = Employees_InternetStore.ANONYMOUS;
+        this.role = Employees_InternetStore.ANONYMOUS;
     }
 
     public String getLogin() {
@@ -34,12 +36,12 @@ public class UserLinux {
         this.name = name;
     }
 
-    public Employees_InternetStore getStore() {
-        return store;
+    public Employees_InternetStore getRole() {
+        return role;
     }
 
-    public void setStore(Employees_InternetStore store) {
-        this.store = store;
+    public void setRole(Employees_InternetStore role) {
+        this.role = role;
     }
 
     @Override
@@ -48,7 +50,7 @@ public class UserLinux {
                 "login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", name='" + name + '\'' +
-                ", store=" + store +
+                ", store=" + role +
                 '}';
     }
 }
