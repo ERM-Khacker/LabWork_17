@@ -64,14 +64,19 @@ public class Store {
         switch (role) {
             case DIRECTOR:
                 System.out.println(role.description);
+                break;
             case ADMINISTRATOR:
                 System.out.println(role.description);
+                break;
             case MANAGER:
                 System.out.println(role.description);
+                break;
             case CUSTOMER:
                 System.out.println(role.description);
+                break;
             case ANONYMOUS:
                 System.out.println(role.description);
+                break;
         }
     }
 
